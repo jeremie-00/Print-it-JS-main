@@ -18,6 +18,16 @@ const slides = [
 ]
 
 const arrows = document.querySelectorAll('.arrow')
+const dots = document.querySelector('.dots')
+
+for (let i = 0; i < slides.length; i++) {
+    const dot = document.createElement('span')
+    dot.classList.add('dot')
+	if (i === 0) {
+		dot.classList.add('dot_selected')
+	}
+    dots.appendChild(dot)
+}
 
 arrows.forEach(arrow => {
 	arrow.addEventListener('click', () => {
