@@ -16,3 +16,15 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
+
+const arrows = document.querySelectorAll('.arrow')
+
+arrows.forEach(arrow => {
+	arrow.addEventListener('click', () => {
+		if (arrow.classList[1] === 'arrow_left') {
+			console.log('left')		
+		} else {
+			console.log('right')		
+		}
+	})
+})
