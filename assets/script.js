@@ -19,6 +19,35 @@ const slides = [
 
 const arrows = document.querySelectorAll('.arrow')
 const dots = document.querySelector('.dots')
+const img = document.querySelector('.banner-img')
+const txt = document.querySelector('#banner p')
+
+let currentSlide = 0
+
+const updateSlide = (index) => {
+	const slide = slides[index]
+	img.src = `./assets/images/slideshow/${slide.image}`
+	txt.innerHTML = slide.tagLine 
+
+	const alldots = document.querySelectorAll('.dot')
+	alldots.forEach((dot, i) => {
+		dot.classList.remove('dot_selected')
+		if (i === index) {
+			dot.classList.add('dot_selected')
+		}
+	})
+}
+
+function changeSlide(direction) {
+	
+   if (direction === 'left') {
+		currentSlide = currentSlide + -1
+   }else{
+		currentSlide = currentSlide + +1
+   }
+	
+    updateSlide(currentSlide)
+}
 
 for (let i = 0; i < slides.length; i++) {
     const dot = document.createElement('span')
@@ -32,9 +61,9 @@ for (let i = 0; i < slides.length; i++) {
 arrows.forEach(arrow => {
 	arrow.addEventListener('click', () => {
 		if (arrow.classList[1] === 'arrow_left') {
-			console.log('left')		
+			changeSlide('left')	
 		} else {
-			console.log('right')		
+			changeSlide('right')		
 		}
 	})
 })
