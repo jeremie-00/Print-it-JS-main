@@ -39,9 +39,7 @@ const updateSlide = (index) => {
 }
 
 function changeSlide(direction) {
-	console.log(currentSlide)
     currentSlide = (currentSlide + direction + slides.length) % slides.length
-	console.log(currentSlide)
     updateSlide(currentSlide)
 }
 
