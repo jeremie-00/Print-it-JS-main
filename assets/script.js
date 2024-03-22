@@ -48,6 +48,10 @@ for (let i = 0; i < slides.length; i++) {
     dot.classList.add('dot')
     updateSlide(currentSlide)
     dots.appendChild(dot)
+	dot.addEventListener('click', () => {
+		currentSlide = i
+		updateSlide(currentSlide)
+	})
 }
 
 arrows.forEach(arrow => {
